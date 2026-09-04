@@ -1,0 +1,19 @@
+{
+  "name": "Weather App",
+  "short_name": "Weather",
+  "description": "A responsive weather app with forecasts, alerts and weather analytics.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
