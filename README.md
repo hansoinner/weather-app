@@ -1,6 +1,6 @@
 # Weather App
 
-A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current weather conditions, detailed weather metrics and a multi-day forecast.
+A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current conditions, detailed weather metrics, an hourly forecast and a multi-day forecast.
 
 ## Features
 
@@ -16,13 +16,18 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - Feels-like temperature
 - Humidity
 - Wind speed
-- Precipitation amount
-- Precipitation probability
+- Precipitation amount and probability
 - Visibility
 - Wind direction with compass heading
 - Wind gusts
 - Sunrise and sunset
 - UV index
+- 24-hour forecast
+- Hourly temperature and weather icons
+- Hourly precipitation probability
+- Hourly wind speed
+- Current hour highlighted
+- Horizontally scrollable hourly forecast
 - 5-day forecast
 - Dynamic weather scenes based on current conditions
 - Automatic day/night weather scene
@@ -76,15 +81,15 @@ https://hansoinner.github.io/weather-app/
 
 ## What This Project Demonstrates
 
-This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics, dynamic weather scenes, theme persistence and dynamic forecast cards.
+This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics, dynamic weather scenes, theme persistence, hourly forecast rendering and dynamic forecast cards.
 
 ## Future Improvements
 
-- Hourly forecast
 - Weather alerts
 - Interactive temperature and precipitation charts
 - Improved weather icons
 - Accessibility and performance refinements
+- Progressive Web App support
 
 ## License
 
