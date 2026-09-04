@@ -1,6 +1,6 @@
 # Weather App
 
-A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current weather conditions and a multi-day forecast.
+A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current weather conditions, detailed weather metrics and a multi-day forecast.
 
 ## Features
 
@@ -16,6 +16,13 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - Feels-like temperature
 - Humidity
 - Wind speed
+- Precipitation amount
+- Precipitation probability
+- Visibility
+- Wind direction with compass heading
+- Wind gusts
+- Sunrise and sunset
+- UV index
 - 5-day forecast
 - Loading and error states
 - Responsive layout for desktop, tablet and mobile
@@ -66,16 +73,16 @@ https://hansoinner.github.io/weather-app/
 
 ## What This Project Demonstrates
 
-This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history and dynamic forecast cards.
+This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics and dynamic forecast cards.
 
 ## Future Improvements
 
-- Sunrise and sunset
-- UV index and precipitation data
-- More detailed forecast information
-- Dynamic weather backgrounds
-- Dark mode
+- Dynamic weather backgrounds based on conditions
+- Dark mode with persisted preference
 - Improved weather icons
+- Hourly forecast
+- Weather alerts
+- Interactive temperature and precipitation charts
 
 ## License
 
