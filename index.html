@@ -2,376 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="A clean and responsive weather application built with HTML, CSS and JavaScript."
-    >
-
-    <meta
-        name="theme-color"
-        content="#2563eb"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A clean and responsive weather application built with HTML, CSS and JavaScript.">
+    <meta name="theme-color" content="#2563eb">
     <title>Weather App</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <script
-        src="script.js"
-        defer
-    ></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .unit-toggle { display:flex; justify-content:center; gap:6px; margin:16px auto 0; padding:4px; width:max-content; border:1px solid var(--border); border-radius:999px; background:var(--surface); box-shadow:var(--shadow-sm); }
+        .unit-button { border:0; border-radius:999px; padding:8px 16px; background:transparent; color:var(--text-secondary); font-weight:700; cursor:pointer; transition:background var(--transition), color var(--transition); }
+        .unit-button.active { background:var(--primary); color:#fff; }
+        .unit-button:focus-visible { outline:3px solid rgba(37,99,235,.25); outline-offset:2px; }
+    </style>
+    <script src="script.js" defer></script>
 </head>
-
 <body>
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="site-header">
-        <div class="container header-container">
-
-            <a
-                href="#"
-                class="logo"
-                aria-label="Weather App home"
-            >
-                Weather<span>App</span>
-            </a>
-
+<header class="site-header">
+    <div class="container header-container">
+        <a href="#" class="logo" aria-label="Weather App home">Weather<span>App</span></a>
+    </div>
+</header>
+<main>
+<section class="weather-section">
+<div class="container">
+    <div class="weather-header">
+        <p class="section-eyebrow">WEATHER</p>
+        <h1>Check the weather</h1>
+        <p class="section-description">Search for a city to see the current weather and forecast.</p>
+    </div>
+    <form class="search-form" id="weather-form" novalidate>
+        <div class="search-input-wrapper">
+            <label for="city-input" class="visually-hidden">Enter city name</label>
+            <input type="text" id="city-input" name="city" placeholder="Enter a city..." autocomplete="off" required>
         </div>
-    </header>
-
-
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-
-    <main>
-
-        <section class="weather-section">
-
-            <div class="container">
-
-                <!-- =================================================
-                     PAGE HEADER
-                ================================================== -->
-
-                <div class="weather-header">
-
-                    <p class="section-eyebrow">
-                        WEATHER
-                    </p>
-
-                    <h1>
-                        Check the weather
-                    </h1>
-
-                    <p class="section-description">
-                        Search for a city to see the current weather
-                        and forecast.
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     SEARCH
-                ================================================== -->
-
-                <form
-                    class="search-form"
-                    id="weather-form"
-                    novalidate
-                >
-
-                    <div class="search-input-wrapper">
-
-                        <label
-                            for="city-input"
-                            class="visually-hidden"
-                        >
-                            Enter city name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="city-input"
-                            name="city"
-                            placeholder="Enter a city..."
-                            autocomplete="off"
-                            required
-                        >
-
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="search-button"
-                        id="search-button"
-                    >
-                        Search
-                    </button>
-
-                </form>
-
-
-                <!-- =================================================
-                     LOCATION BUTTON
-                ================================================== -->
-
-                <button
-                    type="button"
-                    class="location-button"
-                    id="location-button"
-                >
-                    📍 Use My Location
-                </button>
-
-
-                <!-- =================================================
-                     SEARCH ERROR
-                ================================================== -->
-
-                <p
-                    class="form-error"
-                    id="search-error"
-                    role="alert"
-                    aria-live="polite"
-                ></p>
-
-
-                <!-- =================================================
-                     LOADING STATE
-                ================================================== -->
-
-                <div
-                    class="loading-state"
-                    id="loading-state"
-                    aria-live="polite"
-                    hidden
-                >
-
-                    <div
-                        class="loading-spinner"
-                        aria-hidden="true"
-                    ></div>
-
-                    <p>
-                        Loading weather data...
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     WEATHER ERROR
-                ================================================== -->
-
-                <div
-                    class="weather-error"
-                    id="weather-error"
-                    role="alert"
-                    hidden
-                >
-
-                    <h2>
-                        Unable to get weather data
-                    </h2>
-
-                    <p id="weather-error-message">
-                        Something went wrong.
-                        Please try again.
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     WEATHER CONTENT
-                ================================================== -->
-
-                <div
-                    class="weather-content"
-                    id="weather-content"
-                    hidden
-                >
-
-                    <!-- =================================================
-                         CURRENT WEATHER
-                    ================================================== -->
-
-                    <article class="current-weather">
-
-                        <div class="weather-location">
-
-                            <p class="weather-label">
-                                CURRENT WEATHER
-                            </p>
-
-                            <h2 id="city-name">
-                                Oslo
-                            </h2>
-
-                            <p id="weather-date">
-                                Today
-                            </p>
-
-                        </div>
-
-
-                        <div class="weather-main">
-
-                            <div class="weather-icon-container">
-
-                                <span
-                                    id="weather-icon"
-                                    class="weather-icon"
-                                    role="img"
-                                    aria-label="Weather condition"
-                                ></span>
-
-                            </div>
-
-
-                            <div class="temperature-container">
-
-                                <p
-                                    class="temperature"
-                                    id="temperature"
-                                >
-                                    --
-                                </p>
-
-                                <p
-                                    class="weather-condition"
-                                    id="weather-condition"
-                                >
-                                    --
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             WEATHER DETAILS
-                        ================================================== -->
-
-                        <div class="weather-details">
-
-                            <div class="weather-detail">
-
-                                <span class="detail-label">
-                                    Feels like
-                                </span>
-
-                                <strong id="feels-like">
-                                    --
-                                </strong>
-
-                            </div>
-
-
-                            <div class="weather-detail">
-
-                                <span class="detail-label">
-                                    Humidity
-                                </span>
-
-                                <strong id="humidity">
-                                    --
-                                </strong>
-
-                            </div>
-
-
-                            <div class="weather-detail">
-
-                                <span class="detail-label">
-                                    Wind
-                                </span>
-
-                                <strong id="wind-speed">
-                                    --
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =================================================
-                         FORECAST
-                    ================================================== -->
-
-                    <section class="forecast-section">
-
-                        <div class="forecast-header">
-
-                            <div>
-
-                                <p class="weather-label">
-                                    FORECAST
-                                </p>
-
-                                <h2>
-                                    Upcoming weather
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            class="forecast-grid"
-                            id="forecast-grid"
-                        >
-                            <!-- Forecast cards generated by JavaScript -->
-                        </div>
-
-                    </section>
-
-                </div>
-
+        <button type="submit" class="search-button" id="search-button">Search</button>
+    </form>
+    <button type="button" class="location-button" id="location-button">📍 Use My Location</button>
+    <div class="unit-toggle" role="group" aria-label="Temperature unit">
+        <button type="button" class="unit-button active" id="celsius-button" data-unit="celsius" aria-pressed="true">°C</button>
+        <button type="button" class="unit-button" id="fahrenheit-button" data-unit="fahrenheit" aria-pressed="false">°F</button>
+    </div>
+    <p class="form-error" id="search-error" role="alert" aria-live="polite"></p>
+    <div class="loading-state" id="loading-state" aria-live="polite" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p>Loading weather data...</p>
+    </div>
+    <div class="weather-error" id="weather-error" role="alert" hidden>
+        <h2>Unable to get weather data</h2>
+        <p id="weather-error-message">Something went wrong. Please try again.</p>
+    </div>
+    <div class="weather-content" id="weather-content" hidden>
+        <article class="current-weather">
+            <div class="weather-location">
+                <p class="weather-label">CURRENT WEATHER</p>
+                <h2 id="city-name">Oslo</h2>
+                <p id="weather-date">Today</p>
             </div>
-
+            <div class="weather-main">
+                <div class="weather-icon-container">
+                    <span id="weather-icon" class="weather-icon" role="img" aria-label="Weather condition"></span>
+                </div>
+                <div class="temperature-container">
+                    <p class="temperature" id="temperature">--</p>
+                    <p class="weather-condition" id="weather-condition">--</p>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="weather-detail"><span class="detail-label">Feels like</span><strong id="feels-like">--</strong></div>
+                <div class="weather-detail"><span class="detail-label">Humidity</span><strong id="humidity">--</strong></div>
+                <div class="weather-detail"><span class="detail-label">Wind</span><strong id="wind-speed">--</strong></div>
+            </div>
+        </article>
+        <section class="forecast-section">
+            <div class="forecast-header">
+                <div><p class="weather-label">FORECAST</p><h2>Upcoming weather</h2></div>
+            </div>
+            <div class="forecast-grid" id="forecast-grid"></div>
         </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container">
-
-            <p>
-                &copy;
-                <span id="year"></span>
-                Weather App.
-                Built with HTML, CSS and JavaScript.
-            </p>
-
-        </div>
-
-    </footer>
-
+    </div>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>&copy; <span id="year"></span> Weather App. Built with HTML, CSS and JavaScript.</p></div></footer>
 </body>
 </html>
