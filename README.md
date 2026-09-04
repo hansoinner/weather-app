@@ -24,6 +24,9 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - Sunrise and sunset
 - UV index
 - 5-day forecast
+- Dynamic weather scenes based on current conditions
+- Automatic day/night weather scene
+- Dark mode with persisted preference
 - Loading and error states
 - Responsive layout for desktop, tablet and mobile
 - Accessible form controls and weather information
@@ -73,16 +76,15 @@ https://hansoinner.github.io/weather-app/
 
 ## What This Project Demonstrates
 
-This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics and dynamic forecast cards.
+This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics, dynamic weather scenes, theme persistence and dynamic forecast cards.
 
 ## Future Improvements
 
-- Dynamic weather backgrounds based on conditions
-- Dark mode with persisted preference
-- Improved weather icons
 - Hourly forecast
 - Weather alerts
 - Interactive temperature and precipitation charts
+- Improved weather icons
+- Accessibility and performance refinements
 
 ## License
 
