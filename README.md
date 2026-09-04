@@ -6,6 +6,8 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 
 - City weather search
 - Current-location weather lookup
+- Celsius / Fahrenheit toggle
+- Temperature unit preference persisted with LocalStorage
 - Current temperature and weather condition
 - Feels-like temperature
 - Humidity
@@ -22,6 +24,7 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - CSS3
 - Vanilla JavaScript
 - Fetch API
+- LocalStorage
 - Open-Meteo API
 - BigDataCloud Reverse Geocoding API
 - GitHub Pages
@@ -59,11 +62,10 @@ https://hansoinner.github.io/weather-app/
 
 ## What This Project Demonstrates
 
-This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation and dynamic forecast cards.
+This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion and dynamic forecast cards.
 
 ## Future Improvements
 
-- Celsius/Fahrenheit toggle
 - Favorite cities
 - Search history with LocalStorage
 - Sunrise and sunset
