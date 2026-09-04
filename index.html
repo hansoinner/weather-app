@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A clean and responsive weather application built with HTML, CSS and JavaScript.">
 <meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Weather">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <title>Weather App</title>
 <link rel="stylesheet" href="style.css">
 <style>
@@ -21,7 +26,7 @@
 .unit-button:focus-visible,.favorite-button:focus-visible,.history-item:focus-visible,.clear-history:focus-visible,.theme-toggle:focus-visible,.chart-tab:focus-visible{outline:3px solid rgba(37,99,235,.25);outline-offset:3px}
 @media(max-width:800px){.weather-details-extended{grid-template-columns:repeat(2,minmax(0,1fr))}.charts-header,.alerts-header{align-items:flex-start;flex-direction:column}}@media(max-width:640px){.saved-cities{grid-template-columns:1fr}.weather-tools{align-items:stretch;flex-direction:column;gap:12px}.favorite-button{width:100%}.weather-details-extended{grid-template-columns:1fr}.hourly-section,.charts-section,.alerts-section{padding:18px}.hourly-card{flex-basis:108px}.weather-chart{height:260px}.chart-wrapper{min-height:260px}}
 </style>
-<script src="script.js" defer></script><script src="charts.js" defer></script><script src="alerts.js" defer></script>
+<script src="script.js" defer></script><script src="charts.js" defer></script><script src="alerts.js" defer></script><script src="pwa.js" defer></script>
 </head>
 <body>
 <header class="site-header"><div class="container header-container"><a href="#" class="logo" aria-label="Weather App home">Weather<span>App</span></a></div></header>
