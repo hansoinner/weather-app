@@ -1,6 +1,6 @@
 # Weather App
 
-A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current conditions, detailed weather metrics, an hourly forecast and a multi-day forecast.
+A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript**. Search for a city or use your current location to view current conditions, detailed weather metrics, an hourly forecast, interactive weather trends and a multi-day forecast.
 
 ## Features
 
@@ -28,6 +28,11 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - Hourly wind speed
 - Current hour highlighted
 - Horizontally scrollable hourly forecast
+- Interactive 24-hour temperature chart
+- Interactive precipitation chart
+- Interactive wind chart
+- Hover and touch chart tooltips
+- Responsive canvas charts without external chart libraries
 - 5-day forecast
 - Dynamic weather scenes based on current conditions
 - Automatic day/night weather scene
@@ -42,6 +47,7 @@ A responsive weather application built with **HTML5, CSS3 and Vanilla JavaScript
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- Canvas API
 - Fetch API
 - LocalStorage
 - Open-Meteo API
@@ -61,6 +67,7 @@ weather-app/
 ├── index.html
 ├── style.css
 ├── script.js
+├── charts.js
 └── README.md
 ```
 
@@ -81,15 +88,16 @@ https://hansoinner.github.io/weather-app/
 
 ## What This Project Demonstrates
 
-This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics, dynamic weather scenes, theme persistence, hourly forecast rendering and dynamic forecast cards.
+This project demonstrates practical frontend development skills including asynchronous JavaScript, API integration, URL parameters, DOM rendering, form validation, responsive CSS, loading and error handling, browser geolocation, LocalStorage persistence, unit conversion, favorites, search history, detailed weather metrics, dynamic weather scenes, theme persistence, hourly forecast rendering, Canvas API charting, interactive tooltips and responsive data visualization.
 
 ## Future Improvements
 
 - Weather alerts
-- Interactive temperature and precipitation charts
 - Improved weather icons
 - Accessibility and performance refinements
 - Progressive Web App support
+- Offline caching
+- Weather radar integration
 
 ## License
 
