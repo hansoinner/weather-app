@@ -8,80 +8,22 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .unit-toggle { display:flex; justify-content:center; gap:6px; margin:16px auto 0; padding:4px; width:max-content; border:1px solid var(--border); border-radius:999px; background:var(--surface); box-shadow:var(--shadow-sm); }
-        .unit-button { border:0; border-radius:999px; padding:8px 16px; background:transparent; color:var(--text-secondary); font-weight:700; cursor:pointer; transition:background var(--transition), color var(--transition); }
-        .unit-button.active { background:var(--primary); color:#fff; }
-        .unit-button:focus-visible { outline:3px solid rgba(37,99,235,.25); outline-offset:2px; }
+        .unit-toggle,.weather-tools{display:flex;justify-content:center;gap:6px}.unit-toggle{margin:16px auto 0;padding:4px;width:max-content;border:1px solid var(--border);border-radius:999px;background:var(--surface);box-shadow:var(--shadow-sm)}.unit-button,.favorite-button,.history-item{border:0;font:inherit;cursor:pointer}.unit-button{border-radius:999px;padding:8px 16px;background:transparent;color:var(--text-secondary);font-weight:700}.unit-button.active{background:var(--primary);color:#fff}.weather-tools{justify-content:space-between;align-items:center;margin-top:30px;gap:24px}.favorite-button{padding:10px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text-primary);font-weight:700}.favorite-button.active{color:var(--primary);background:var(--primary-light);border-color:var(--primary)}.saved-cities{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}.saved-panel{padding:22px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);box-shadow:var(--shadow-sm)}.saved-panel h2{font-size:1.05rem;margin-bottom:14px}.saved-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none}.history-item{display:flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--border);border-radius:999px;background:var(--surface-secondary);color:var(--text-primary)}.history-item:hover{border-color:var(--primary);color:var(--primary)}.empty-list{color:var(--text-muted);font-size:.9rem}.clear-history{margin-top:14px;border:0;background:none;color:var(--danger);font-weight:700;cursor:pointer}.unit-button:focus-visible,.favorite-button:focus-visible,.history-item:focus-visible,.clear-history:focus-visible{outline:3px solid rgba(37,99,235,.25);outline-offset:3px}@media(max-width:640px){.saved-cities{grid-template-columns:1fr}.weather-tools{align-items:stretch;flex-direction:column;gap:12px}.favorite-button{width:100%}}
     </style>
     <script src="script.js" defer></script>
 </head>
 <body>
-<header class="site-header">
-    <div class="container header-container">
-        <a href="#" class="logo" aria-label="Weather App home">Weather<span>App</span></a>
-    </div>
-</header>
-<main>
-<section class="weather-section">
-<div class="container">
-    <div class="weather-header">
-        <p class="section-eyebrow">WEATHER</p>
-        <h1>Check the weather</h1>
-        <p class="section-description">Search for a city to see the current weather and forecast.</p>
-    </div>
-    <form class="search-form" id="weather-form" novalidate>
-        <div class="search-input-wrapper">
-            <label for="city-input" class="visually-hidden">Enter city name</label>
-            <input type="text" id="city-input" name="city" placeholder="Enter a city..." autocomplete="off" required>
-        </div>
-        <button type="submit" class="search-button" id="search-button">Search</button>
-    </form>
+<header class="site-header"><div class="container header-container"><a href="#" class="logo" aria-label="Weather App home">Weather<span>App</span></a></div></header>
+<main><section class="weather-section"><div class="container">
+    <div class="weather-header"><p class="section-eyebrow">WEATHER</p><h1>Check the weather</h1><p class="section-description">Search for a city to see the current weather and forecast.</p></div>
+    <form class="search-form" id="weather-form" novalidate><div class="search-input-wrapper"><label for="city-input" class="visually-hidden">Enter city name</label><input type="text" id="city-input" name="city" placeholder="Enter a city..." autocomplete="off" required></div><button type="submit" class="search-button" id="search-button">Search</button></form>
     <button type="button" class="location-button" id="location-button">📍 Use My Location</button>
-    <div class="unit-toggle" role="group" aria-label="Temperature unit">
-        <button type="button" class="unit-button active" id="celsius-button" data-unit="celsius" aria-pressed="true">°C</button>
-        <button type="button" class="unit-button" id="fahrenheit-button" data-unit="fahrenheit" aria-pressed="false">°F</button>
-    </div>
+    <div class="unit-toggle" role="group" aria-label="Temperature unit"><button type="button" class="unit-button active" id="celsius-button" data-unit="celsius" aria-pressed="true">°C</button><button type="button" class="unit-button" id="fahrenheit-button" data-unit="fahrenheit" aria-pressed="false">°F</button></div>
     <p class="form-error" id="search-error" role="alert" aria-live="polite"></p>
-    <div class="loading-state" id="loading-state" aria-live="polite" hidden>
-        <div class="loading-spinner" aria-hidden="true"></div>
-        <p>Loading weather data...</p>
-    </div>
-    <div class="weather-error" id="weather-error" role="alert" hidden>
-        <h2>Unable to get weather data</h2>
-        <p id="weather-error-message">Something went wrong. Please try again.</p>
-    </div>
-    <div class="weather-content" id="weather-content" hidden>
-        <article class="current-weather">
-            <div class="weather-location">
-                <p class="weather-label">CURRENT WEATHER</p>
-                <h2 id="city-name">Oslo</h2>
-                <p id="weather-date">Today</p>
-            </div>
-            <div class="weather-main">
-                <div class="weather-icon-container">
-                    <span id="weather-icon" class="weather-icon" role="img" aria-label="Weather condition"></span>
-                </div>
-                <div class="temperature-container">
-                    <p class="temperature" id="temperature">--</p>
-                    <p class="weather-condition" id="weather-condition">--</p>
-                </div>
-            </div>
-            <div class="weather-details">
-                <div class="weather-detail"><span class="detail-label">Feels like</span><strong id="feels-like">--</strong></div>
-                <div class="weather-detail"><span class="detail-label">Humidity</span><strong id="humidity">--</strong></div>
-                <div class="weather-detail"><span class="detail-label">Wind</span><strong id="wind-speed">--</strong></div>
-            </div>
-        </article>
-        <section class="forecast-section">
-            <div class="forecast-header">
-                <div><p class="weather-label">FORECAST</p><h2>Upcoming weather</h2></div>
-            </div>
-            <div class="forecast-grid" id="forecast-grid"></div>
-        </section>
-    </div>
-</div>
-</section>
-</main>
+    <div class="saved-cities"><section class="saved-panel" aria-labelledby="favorites-title"><h2 id="favorites-title">⭐ Favorite cities</h2><ul class="saved-list" id="favorites-list"></ul></section><section class="saved-panel" aria-labelledby="history-title"><h2 id="history-title">🕘 Recent searches</h2><ul class="saved-list" id="history-list"></ul><button type="button" class="clear-history" id="clear-history">Clear history</button></section></div>
+    <div class="loading-state" id="loading-state" aria-live="polite" hidden><div class="loading-spinner" aria-hidden="true"></div><p>Loading weather data...</p></div>
+    <div class="weather-error" id="weather-error" role="alert" hidden><h2>Unable to get weather data</h2><p id="weather-error-message">Something went wrong. Please try again.</p></div>
+    <div class="weather-content" id="weather-content" hidden><article class="current-weather"><div class="weather-location"><p class="weather-label">CURRENT WEATHER</p><h2 id="city-name">Oslo</h2><p id="weather-date">Today</p></div><div class="weather-main"><div class="weather-icon-container"><span id="weather-icon" class="weather-icon" role="img" aria-label="Weather condition"></span></div><div class="temperature-container"><p class="temperature" id="temperature">--</p><p class="weather-condition" id="weather-condition">--</p></div></div><div class="weather-tools"><button type="button" class="favorite-button" id="favorite-button" aria-pressed="false">☆ Add to favorites</button></div><div class="weather-details"><div class="weather-detail"><span class="detail-label">Feels like</span><strong id="feels-like">--</strong></div><div class="weather-detail"><span class="detail-label">Humidity</span><strong id="humidity">--</strong></div><div class="weather-detail"><span class="detail-label">Wind</span><strong id="wind-speed">--</strong></div></div></article><section class="forecast-section"><div class="forecast-header"><div><p class="weather-label">FORECAST</p><h2>Upcoming weather</h2></div></div><div class="forecast-grid" id="forecast-grid"></div></section></div>
+</div></section></main>
 <footer class="site-footer"><div class="container"><p>&copy; <span id="year"></span> Weather App. Built with HTML, CSS and JavaScript.</p></div></footer>
-</body>
-</html>
+</body></html>
